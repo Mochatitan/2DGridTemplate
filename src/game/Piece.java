@@ -5,12 +5,12 @@ import java.awt.Image;
 import java.awt.Point;
 
 /**
- * This is an abstract superclass for a tower in the game
+ * This is an abstract superclass for a piece in the game
  * 
  * @author basilvetas
  *
  */
-abstract public class Tower {
+abstract public class Piece {
 	/* instance variables */
 	protected Point pos; // holds position of tower
 	protected Image image; // holds tower image
@@ -19,7 +19,7 @@ abstract public class Tower {
 
 	public void draw(Graphics g) {
 		// Draws tower object to location specified by user
-		g.drawImage(image, pos.x, pos.y + anchorY, null);
+		g.drawImage(image, pos.x, pos.y, null);
 
 		// Draws dot on Enemy's (x, y) coordinates
 		// g.setColor(Color.WHITE);
@@ -30,8 +30,11 @@ abstract public class Tower {
 	 * 
 	 * @param c
 	 */
-	public void setPosition(Point newPos) {
-		position = newPos;
+	public void setPos(Point newPos) {
+		pos = newPos;
+	}
+	public void getPos() {
+		return pos;
 	}
 
 	abstract List<Point> ValidLocations();
