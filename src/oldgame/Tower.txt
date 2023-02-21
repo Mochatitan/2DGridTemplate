@@ -1,0 +1,55 @@
+package oldgame;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+
+/**
+ * This is an abstract superclass for a tower in the game
+ * 
+ * @author basilvetas
+ *
+ */
+abstract public class Tower {
+	/* instance variables */
+	protected Point position; // holds position of tower
+	protected Image image; // holds tower image
+	// protected int anchorX; // shifts X coordinate
+	// protected int anchorY; // shifts Y coordinate
+	protected double timeSinceLastFire;// time since last effect was fired
+	protected int radius; // radius duh
+
+	public void draw(Graphics g) {
+		// Draws tower object to location specified by user
+		g.drawImage(image, position.x - radius, position.y - radius, null);
+
+		// Draws dot on Enemy's (x, y) coordinates
+		// g.setColor(Color.WHITE);
+		// g.fillOval(position.getX(), position.getY(), 5, 5);
+	}
+
+	/**
+	 * 
+	 * @param c coordinate
+	 */
+	public void setPos(Point c) {
+		position = c;
+	}
+
+	public void setPos(double x, double y) {
+		position = new Point((int) x, (int) y);
+	}
+
+	public Point getPos() {
+		return position;
+	}
+
+	public double getX() {
+		return position.getX();
+	}
+
+	public double getY() {
+		return position.getY();
+	}
+
+}
