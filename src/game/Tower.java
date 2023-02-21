@@ -12,16 +12,14 @@ import java.awt.Point;
  */
 abstract public class Tower {
 	/* instance variables */
-	protected Point position; // holds position of tower
-	protected Image tower; // holds tower image
-	protected int anchorX; // shifts X coordinate
-	protected int anchorY; // shifts Y coordinate
+	protected Point pos; // holds position of tower
+	protected Image image; // holds tower image
 	protected double timeSinceLastFire;// time since last effect was fired
 	protected int id; // id of the tower
 
 	public void draw(Graphics g) {
 		// Draws tower object to location specified by user
-		g.drawImage(tower, position.x + anchorX, position.y + anchorY, null);
+		g.drawImage(image, pos.x, pos.y + anchorY, null);
 
 		// Draws dot on Enemy's (x, y) coordinates
 		// g.setColor(Color.WHITE);
@@ -32,12 +30,12 @@ abstract public class Tower {
 	 * 
 	 * @param c
 	 */
-	public void setPosition(Point c) {
-		position = c;
+	public void setPosition(Point newPos) {
+		position = newPos;
 	}
 
-	abstract void interact(Game game, double deltaTime);
+	abstract List<Point> ValidLocations();
 
-	abstract void drawMaker(Graphics g);
+	
 
 }
