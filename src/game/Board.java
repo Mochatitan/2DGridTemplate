@@ -3,20 +3,10 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import static game.Constants.*;
 
 public class Board extends JPanel implements ActionListener, KeyListener {
-
-
-    // controls the delay between each tick in ms
-    private final int DELAY = 25;
-    // controls the size of the board
-    public static final int TILE_SIZE = 50;
-    public static final int ROWS = 20;
-    public static final int COLUMNS = 20;
-    // controls how many apples appear on the board
-    public static final int NUM_APPLES = 5;
-    // suppress serialization warning
-    private static final long serialVersionUID = 490905409104883233L;
+    
     
     // keep a reference to the timer object that triggers actionPerformed() in
     // case we need access to it in another method
